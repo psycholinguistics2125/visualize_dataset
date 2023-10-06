@@ -3,7 +3,15 @@
 
 # Interactive Research Dataset Visualization App
 
-This Streamlit app allows you to interact with a dataset containing information about individuals, their conditions, and measures taken from them. You can filter the dataset, visualize it using Seaborn box plots, and export filtered data in different formats.
+This Streamlit app allows you to interact with a dataset containing information about individuals, their conditions, and measures taken from treir conversation transcript. 
+
+Associated publication is: 
+
+```
+Towards Unlocking the Linguistic Code of Post-Traumatic Stress Disorder: A Comprehensive Analysis and Diagnostic Approach, 2023
+```
+
+You can filter the dataset, visualize it using Seaborn box plots, and export filtered data in different formats.
 
 
 This repository is associated with a streamlit app that will help to interact with the dataset.
