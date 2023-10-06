@@ -1,0 +1,4 @@
+data :
+  data_folder : ./data/corpus
+  etude_1000_filename : "socio_psycho_dataset.csv"
+  features_filename : "text_features.csv"
