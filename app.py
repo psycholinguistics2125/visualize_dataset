@@ -49,6 +49,7 @@ if sexe_all:
     sexe = data["sexe"].unique()
 else:
     sexe = st.sidebar.selectbox("Select Sexe", data["sexe"].unique())
+    sexe = [sexe]
 
 # Filter by age
 age_range_all = st.sidebar.checkbox("Select All Ages", value=True)
@@ -70,6 +71,8 @@ else:
     selected_profession = st.sidebar.selectbox(
         "Select Profession", data["code_insee"].unique()
     )
+    selected_profession = [selected_profession]
+
 
 
 # Filter by degree
@@ -80,6 +83,7 @@ else:
     selected_education = st.sidebar.selectbox(
         "Select education_degree", data["education_degree"].unique()
     )
+    selected_education = [selected_education]
 
 # Filter by symptom
 symptom_all = st.sidebar.checkbox("Select All Symptoms", value=True)
@@ -92,7 +96,7 @@ else:
     )  # Assuming symptoms start from column 6
 
 # Apply filters to the data
-if age_range_all and profession_all:
+if age_range_all and profession_all and education_all and sexe_all:
     filtered_data = data  # No need to filter if all ages and professions are selected
 else:
     filtered_data = data[
