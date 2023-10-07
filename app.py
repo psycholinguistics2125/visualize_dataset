@@ -73,11 +73,11 @@ else:
 
 
 # Filter by degree
-profession_all = st.sidebar.checkbox("Select All Education", value=True)
-if profession_all:
-    selected_profession = data["education_degree"].unique()
+education_all = st.sidebar.checkbox("Select All Education", value=True)
+if education_all:
+    selected_education = data["education_degree"].unique()
 else:
-    selected_profession = st.sidebar.selectbox(
+    selected_education = st.sidebar.selectbox(
         "Select education_degree", data["education_degree"].unique()
     )
 
@@ -98,7 +98,9 @@ else:
     filtered_data = data[
         (data["age"] >= age_range[0])
         & (data["age"] <= age_range[1])
-        & (data["profession"].isin(selected_profession))
+        & (data["code_insee"].isin(selected_profession))
+        & (data["education_degree"].isin(selected_education))
+        & (data["sexe"].isin(sexe))
     ]
 
 # Display filtered data
