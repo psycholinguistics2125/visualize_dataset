@@ -85,15 +85,6 @@ else:
     )
     selected_education = [selected_education]
 
-# Filter by symptom
-symptom_all = st.sidebar.checkbox("Select All Symptoms", value=True)
-if symptom_all:
-    selected_symptom = data.columns[5:]  # Assuming symptoms start from column 6
-else:
-    selected_symptom = st.sidebar.selectbox(
-        "Select Symptom",
-        data.filter(regex=r"probable").columns.tolist() + ["full_or_partial_PTSD"],
-    )  # Assuming symptoms start from column 6
 
 # Apply filters to the data
 if age_range_all and profession_all and education_all and sexe_all:
@@ -119,6 +110,19 @@ st.write(f"Total Number of People: {len(filtered_data)}")
 st.header('Count of "critere A" Values')
 exp_critereA_counts = filtered_data["exp_critereA"].value_counts()
 st.write(exp_critereA_counts)
+
+st.header('Count of "PTSD" Diagnosis')
+def encode_ptsd(x):
+    if x == 0:
+        return "no PTSD"
+    elif x == 1:
+        return "partial PTSD"
+    elif x == 2:
+        return "full PTSD"
+    else:
+        return "unknown"
+PTSD_counts = filtered_data["full_and_partial_PTSD"].apply(lambda x : encode_ptsd(x)).value_counts()
+st.write(PTSD_counts)
 
 # Data visualization
 st.header("Box Plot visualization")
